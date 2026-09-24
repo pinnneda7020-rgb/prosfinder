@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prosfinder</title>
+<style>
+body { font-family: Arial, sans-serif; text-align: center; padding: 20px; background-color: #f4f4f4; color: #333; margin-bottom: 80px; }
+.logo { font-size: 32px; font-weight: bold; color: #ffffff; background-color: #1a2a3a; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+
+/* BOTÓN DE REGISTRO COMPACTO Y LIMPIO */
+.btn-small { display: block; width: 65%; max-width: 220px; margin: 10px auto; padding: 10px; font-size: 14px; font-weight: bold; color: white; border: none; border-radius: 20px; cursor: pointer; text-decoration: none; background-color: #d35400; }
+
+/* CUADRO SÁNDWICH DE ZELLE UNIVERSAL */
+.zelle-box { background-color: #ffffff; border: 1px solid #cbd5e1; padding: 15px; border-radius: 8px; margin: 20px auto; max-width: 340px; font-size: 14px; text-align: center; box-shadow: 0px 4px 6px rgba(0,0,0,0.02); }
+.zelle-title { font-weight: bold; font-size: 15px; color: #1a2a3a; display: block; margin-bottom: 6px; }
+.zelle-number { font-weight: bold; color: #27ae60; font-size: 20px; display: block; margin: 10px 0; background-color: #f8fafc; padding: 8px; border-radius: 6px; border: 1px solid #e2e8f0; }
+
+/* VISTAS Y REJILLA DE CATEGORÍAS */
+.page-view { display: none; }
+.page-view.active-view { display: block !important; }
+.grid-categories { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 340px; margin: 20px auto; }
+.category-card { background: white; padding: 15px 10px; border-radius: 8px; box-shadow: 0px 4px 6px rgba(0,0,0,0.05); cursor: pointer; border: 1px solid #e2e8f0; font-weight: bold; font-size: 14px; }
+.category-card .icon { font-size: 30px; display: block; margin-bottom: 6px; }
+
+/* PLANILLAS Y TARJETAS */
+.form-container { background: white; padding: 20px; border-radius: 8px; margin: 15px auto; max-width: 320px; box-shadow: 0px 4px 6px rgba(0,0,0,0.1); text-align: left; }
+label { font-weight: bold; display: block; margin-top: 10px; }
+input { width: 100%; padding: 10px; margin-top: 5px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+.btn-submit { background-color: #27ae60; color: white; border: none; padding: 10px; width: 100%; border-radius: 4px; font-weight: bold; margin-top: 15px; cursor: pointer; }
+.btn-back { background-color: #7f8c8d; color: white; padding: 10px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; margin-bottom: 15px; width: 100%; }
+
+.list-container { max-width: 340px; margin: 20px auto; text-align: left; background: white; padding: 15px; border-radius: 8px; box-shadow: 0px 4px 6px rgba(0,0,0,0.05); }
+.list-title { font-weight: bold; font-size: 18px; margin-bottom: 10px; color: #1a2a3a; border-bottom: 2px solid #f4f4f4; padding-bottom: 5px; text-transform: uppercase; text-align: center; }
+.pro-card { background: #f9f9f9; padding: 12px; border-radius: 6px; border-left: 4px solid #d35400; margin: 10px 0; }
+.pro-card p { margin: 4px 0; font-size: 14px; }
+.pro-card .name { font-weight: bold; color: #1a2a3a; font-size: 16px; }
+.action-links { margin-top: 10px; display: flex; gap: 10px; }
+.action-btn { flex: 1; text-align: center; padding: 8px; font-size: 13px; font-weight: bold; color: white; border-radius: 4px; text-decoration: none; }
+.btn-chat { background-color: #0073e6; }
+.no-records { text-align: center; color: #7f8c8d; font-style: italic; font-size: 13px; padding: 15px; }
+</style>
+</head>
+<body>
+
+<!-- PANTALLA 1: PORTADA AUTOMÁTICA CON LOGOS DIRECTOS -->
+<div id="home-page" class="page-view active-view">
+<div class="logo">🛠️⚡ Prosfinder</div>
+
+<!-- BOTÓN DE REGISTRO COMPACTO -->
+<button class="btn-small" onclick="navigateTo('register-page')">Registra tu Oficio</button>
+
+<!-- REJILLA DE CATEGORÍAS DIRECTA EN LA ENTRADA -->
+<div class="grid-categories">
+<div class="category-card" onclick="openCategoryList('electricista')"><span class="icon">⚡</span>Electricistas</div>
+<div class="category-card" onclick="openCategoryList('plomero')"><span class="icon">🪠</span>Plomeros</div>
+<div class="category-card" onclick="openCategoryList('pintor')"><span class="icon">🎨</span>Pintores</div>
+<div class="category-card" onclick="openCategoryList('mecanico')"><span class="icon">🚗</span>Mecánicos</div>
+<div class="category-card" onclick="openCategoryList('jardinero')"><span class="icon">🌳</span>Jardineros</div>
+</div>
+
+<!-- TU CAJA DE ZELLE ESTILO SÁNDWICH -->
+<div class="zelle-box">
+<span class="zelle-title">🇺🇸 Support this project to keep it free!</span>
+<i>If you contribute $1 dollar for every deal you close, you help us keep this platform 100% free with no hidden fees or monthly payments.</i>
+<span class="zelle-number">323-637-6165</span>
+<span class="zelle-title">🇲🇽 ¡Apoya el proyecto para que siga siendo gratis!</span>
+<i>Si aportas $1 dólar por cada trato que cierres, ayudas a que la plataforma siga operando al 100% sin cuotas ni mensualidades forzadas.</i>
+</div>
+</div>
+
+<!-- PANTALLA 2: TABLERO PÚBLICO CON RESULTADOS DE LA CATEGORÍA SELECCIONADA -->
+<div id="results-page" class="page-view">
+<div class="logo">🛠️⚡ Prosfinder</div>
+<div style="max-width: 340px; margin: 0 auto;">
+<button class="btn-back" onclick="navigateTo('home-page')">⬅ Volver al Menú / Back</button>
+</div>
+
+<div class="list-container">
+<div class="list-title" id="current-category-title">Contratistas</div>
+<div id="contractor-list-target"></div>
+</div>
+</div>
+
+<!-- PANTALLA 3: PLANILLA DE REGISTRO PARA EL TRABAJADOR -->
+<div id="register-page" class="page-view">
+<div class="logo">🛠️⚡ Prosfinder</div>
+<div style="max-width: 340px; margin: 0 auto;">
+<button class="btn-back" onclick="navigateTo('home-page')">⬅ Cancelar / Back</button>
+</div>
+
+<div class="form-container">
+<h3>Registra tu Especialidad u Oficio</h3>
+<label>ZIP Code:</label>
+<input type="text" id="reg-zip" placeholder="90255">
+<label>Nombre / Name:</label>
+<input type="text" id="reg-name" placeholder="Tu Nombre">
+<label>Teléfono / Phone:</label>
+<input type="text" id="reg-phone" placeholder="323-000-0000">
+<label>Tu Oficio (Escribe: electricista, plomero, mecanico, pintor o jardinero):</label>
+<input type="text" id="reg-trade" placeholder="Ej: electricista">
+<button class="btn-submit" onclick="saveContractor()">Registrarme / Register</button>
+</div>
+</div>
+
+<script>
+function navigateTo(pageId) {
+var views = document.querySelectorAll('.page-view');
+views.forEach(function(v) { v.classList.remove('active-view'); });
+document.getElementById(pageId).classList.add('active-view');
+window.scrollTo(0,0);
+}
+
+function saveContractor() {
+var name = document.getElementById('reg-name').value.trim();
+var zip = document.getElementById('reg-zip').value.trim();
+var phone = document.getElementById('reg-phone').value.trim();
+var trade = document.getElementById('reg-trade').value.trim().toLowerCase();
+
+trade = trade.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+if(!name || !zip || !phone || !trade) {
+alert('Por favor llena todos los campos obligatorios');
+return;
+}
+
+var list = JSON.parse(localStorage.getItem('prosList')) || [];
+list.push({name: name, zip: zip, phone: phone, trade: trade});
+localStorage.setItem('prosList', JSON.stringify(list));
+
+alert('¡Registro guardado con éxito y enviado a su categoría de forma permanente!');
+
+document.getElementById('reg-name').value = '';
+document.getElementById('reg-zip').value = '';
+document.getElementById('reg-phone').value = '';
+document.getElementById('reg-trade').value = '';
+
+openCategoryList(trade);
+}
+
+function openCategoryList(categoryName) {
+var cleanCat = categoryName.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+document.getElementById('current-category-title').innerText = categoryName.toUpperCase();
+var list = JSON.parse(localStorage.getItem('prosList')) || [];
+var target = document.getElementById('contractor-list-target');
+target.innerHTML = '';
+
+var matches = list.filter(function(pro) {
+var cleanProTrade = pro.trade.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+return cleanProTrade === cleanCat || cleanProTrade.includes(cleanCat);
+});
+
+if(matches.length === 0) {
+target.innerHTML = '<div class="no-records">⚠️ Lo sentimos, no hay trabajadores registrados en la categoría "' + categoryName + '" en este momento.</div>';
+} else {
+matches.forEach(function(pro) {
+var card = document.createElement('div');
+card.className = 'pro-card';
+card.innerHTML = '<p class="name">👷‍♂️ ' + pro.name + '</p>' +
+'<p><b>ZIP:</b> ' + pro.zip + '</p>' +
