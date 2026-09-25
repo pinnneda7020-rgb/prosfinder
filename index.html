@@ -5,165 +5,152 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prosfinder</title>
 <style>
-body { font-family: Arial, sans-serif; text-align: center; padding: 20px; background-color: #f4f4f4; color: #333; margin-bottom: 80px; }
-.logo { font-size: 32px; font-weight: bold; color: #ffffff; background-color: #1a2a3a; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
-h2 { font-size: 18px; margin: 25px 0 15px 0; color: #1a2a3a; font-weight: bold; }
-.btn-small { display: block; width: 65%; max-width: 220px; margin: 10px auto; padding: 10px; font-size: 14px; font-weight: bold; color: white; border: none; border-radius: 20px; cursor: pointer; text-decoration: none; background-color: #d35400; }
-
-/* CUADRO SÁNDWICH DE ZELLE UNIVERSAL */
-.zelle-box { background-color: #ffffff; border: 1px solid #cbd5e1; padding: 15px; border-radius: 8px; margin: 35px auto; max-width: 340px; font-size: 14px; text-align: center; box-shadow: 0px 4px 6px rgba(0,0,0,0.02); }
-.zelle-title { font-weight: bold; font-size: 15px; color: #1a2a3a; display: block; margin-bottom: 6px; }
-.zelle-number { font-weight: bold; color: #27ae60; font-size: 20px; display: block; margin: 10px 0; background-color: #f8fafc; padding: 8px; border-radius: 6px; border: 1px solid #e2e8f0; }
-
-/* REJILLA DE CATEGORÍAS EN PORTADA */
-.grid-categories { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 340px; margin: 0 auto; }
-.category-card { background: white; padding: 18px 10px; border-radius: 8px; box-shadow: 0px 4px 6px rgba(0,0,0,0.05); cursor: pointer; border: 1px solid #e2e8f0; font-weight: bold; font-size: 13px; text-transform: uppercase; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.category-card .icon { font-size: 28px; margin-bottom: 6px; }
-
-/* PLANILLAS Y TARJETAS CORREGIDAS */
-.view-section { display: none; }
-
-.form-container { background: white; padding: 20px; border-radius: 8px; margin: 15px auto; max-width: 320px; box-shadow: 0px 4px 6px rgba(0,0,0,0.1); text-align: left; }
-label { font-weight: bold; display: block; margin-top: 10px; }
-input { width: 100%; padding: 10px; margin-top: 5px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
-.btn-submit { background-color: #27ae60; color: white; border: none; padding: 10px; width: 100%; border-radius: 4px; font-weight: bold; margin-top: 15px; cursor: pointer; }
-.btn-back { background-color: #7f8c8d; color: white; padding: 10px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; margin-bottom: 15px; width: 100%; }
-
-.list-container { max-width: 340px; margin: 20px auto; text-align: left; background: white; padding: 15px; border-radius: 8px; box-shadow: 0px 4px 6px rgba(0,0,0,0.05); }
-.list-title { font-weight: bold; font-size: 16px; margin-bottom: 10px; color: #1a2a3a; border-bottom: 2px solid #f4f4f4; padding-bottom: 5px; text-transform: uppercase; text-align: center; }
-.pro-card { background: #f9f9f9; padding: 12px; border-radius: 6px; border-left: 4px solid #d35400; margin: 10px 0; }
-.pro-card p { margin: 4px 0; font-size: 14px; }
-.pro-card .name { font-weight: bold; color: #1a2a3a; font-size: 16px; }
-.action-links { margin-top: 10px; display: flex; gap: 10px; }
-.action-btn { flex: 1; text-align: center; padding: 8px; font-size: 13px; font-weight: bold; color: white; border-radius: 4px; text-decoration: none; }
-.btn-chat { background-color: #0073e6; }
+body {
+background-color: #121214;
+color: #ffffff;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+margin: 0;
+padding: 15px;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.header-box {
+background-color: #1e1e24;
+border-radius: 12px;
+padding: 20px;
+width: 100%;
+max-width: 400px;
+text-align: center;
+box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+margin-bottom: 20px;
+border: 1px solid #2a2a35;
+}
+h1 {
+color: #ffffff;
+font-size: 24px;
+margin: 0 0 15px 0;
+font-weight: 700;
+letter-spacing: 0.5px;
+}
+.btn-register {
+background-color: #0052cc;
+color: white;
+border: none;
+padding: 14px 24px;
+font-size: 16px;
+font-weight: 600;
+border-radius: 8px;
+width: 80%;
+cursor: pointer;
+box-shadow: 0 2px 8px rgba(0,82,204,0.4);
+}
+.info-card {
+background-color: #1a1a1e;
+border-left: 4px solid #0052cc;
+border-radius: 4px 12px 12px 4px;
+padding: 20px;
+width: 100%;
+max-width: 360px;
+margin-bottom: 25px;
+box-sizing: border-box;
+}
+.phone-display {
+font-size: 22px;
+font-weight: 700;
+color: #00ede6;
+text-align: center;
+margin: 15px 0;
+letter-spacing: 1px;
+user-select: all;
+pointer-events: none;
+}
+.lang-section {
+margin-bottom: 15px;
+}
+.lang-section:last-child {
+margin-bottom: 0;
+}
+p {
+font-size: 14px;
+line-height: 1.5;
+color: #b3b3b3;
+margin: 5px 0;
+}
+strong {
+color: #ffffff;
+}
 </style>
 </head>
 <body>
 
-<!-- PANTALLA 1: PORTADA PRINCIPAL (ASEGURADA CON ARRANQUE EN LÍNEA) -->
-<div id="home-page" class="view-section" style="display: block;">
-<div class="logo">🛠️⚡ Prosfinder</div>
+<div class="header-box">
+<h1>🛠️ Prosfinder</h1>
+<button class="btn-register">Registra tu Oficio</button>
+</div>
 
-<!-- BOTÓN DE REGISTRO COMPACTO -->
-<button class="btn-small" onclick="navigateTo('register-page')">Registra tu Oficio</button>
+<div class="info-card">
+<div class="lang-section">
+<p>🇺🇸 <strong>Support this project to keep it free!</strong></p>
+<p>If you contribute $1 dollar for every deal you close, you help us keep this platform 100% free with no hidden fees or monthly payments.</p>
+</div>
 
-<h2>Oficios Disponibles / Active Trades</h2>
-<!-- REJILLA DINÁMICA AUTOMÁTICA -->
-<div class="grid-categories" id="dynamic-grid-target"></div>
+<div class="phone-display">323-637-6165</div>
 
-<!-- TU CAJA DE ZELLE ESTILO SÁNDWICH -->
-<div class="zelle-box">
-<span class="zelle-title">🇺🇸 Support this project to keep it free!</span>
-<i>If you contribute $1 dollar for every deal you close, you help us keep this platform 100% free with no hidden fees or monthly payments.</i>
-<span class="zelle-number">323-637-6165</span>
-<span class="zelle-title">🇲🇽 ¡Apoya el proyecto para que siga siendo gratis!</span>
-<i>Si aportas $1 dólar por cada trato que cierres, ayudas a que la plataforma siga operando al 100% sin cuotas ni mensualidades forzadas.</i>
+<div class="lang-section">
+<p>🇲🇽 <strong>¡Apoya el proyecto para que siga siendo gratis!</strong></p>
+<p>Si aportas $1 dólar por cada trato que cierres, ayudas a que la plataforma siga operando al 100% sin cuotas ni mensualidades forzadas.</p>
 </div>
 </div>
 
-<!-- PANTALLA 2: TABLERO DE RESULTADOS -->
-<div id="results-page" class="view-section">
-<div class="logo">🛠️⚡ Prosfinder</div>
-<div style="max-width: 340px; margin: 0 auto;">
-<button class="btn-back" onclick="returnToHome()">⬅ Volver al Menú / Back</button>
-</div>
+</body>
+</html>
 
-<div class="list-container">
-<div class="list-title" id="current-category-title">Resultados</div>
-<div id="contractor-list-target"></div>
-</div>
-</div>
+<!-- SECCIÓN DEL BUSCADOR LOCAL Y CATÁLOGO -->
+<div class="header-box" style="max-width: 400px; width: 100%; box-sizing: border-box;">
+<h2 style="font-size: 18px; margin: 0 0 12px 0; color: #ffffff; text-align: left;">🔍 Find Local Pros (Zip: 90255)</h2>
+<input type="text" id="searchBar" placeholder="Search trades (e.g. Mechanics, Electricians)..." style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #2a2a35; background-color: #1a1a1e; color: white; box-sizing: border-box; font-size: 15px; margin-bottom: 15px;">
 
-<!-- PANTALLA 3: PLANILLA DE REGISTRO -->
-<div id="register-page" class="view-section">
-<div class="logo">🛠️⚡ Prosfinder</div>
-<div style="max-width: 340px; margin: 0 auto;">
-<button class="btn-back" onclick="returnToHome()">⬅ Cancelar / Back</button>
+<!-- Contenedor dinámico de trabajadores -->
+<div id="prosList">
+<!-- Ejemplo de tarjeta de perfil elegante -->
+<div class="pro-card" style="background-color: #1a1a1e; border: 1px solid #2a2a35; border-radius: 10px; padding: 15px; margin-bottom: 10px; text-align: left;">
+<div style="display: flex; justify-content: space-between; align-items: center;">
+<strong style="font-size: 16px; color: #ffffff;">Miguel Pineda</strong>
+<span style="background-color: #0052cc; color: white; font-size: 12px; padding: 4px 8px; border-radius: 4px; font-weight: 600;">Electrician</span>
 </div>
-
-<div class="form-container">
-<h3>Registra tu Especialidad u Oficio</h3>
-<label>ZIP Code:</label>
-<input type="text" id="reg-zip" placeholder="90255">
-<label>Nombre / Name:</label>
-<input type="text" id="reg-name" placeholder="Tu Nombre">
-<label>Teléfono / Phone:</label>
-<input type="text" id="reg-phone" placeholder="323-000-0000">
-<label>Tu Oficio o Especialidad (Escribe qué sabes hacer):</label>
-<input type="text" id="reg-trade" placeholder="Ej: electricista, plomero, drywall, barber">
-<button class="btn-submit" onclick="saveContractor()">Registrarme / Register</button>
+<p style="margin: 8px 0; font-size: 14px; color: #b3b3b3;">Residential wiring, outlet additions, and panel troubleshooting in Huntington Park area.</p>
+<button class="btn-chat" style="background-color: #222227; color: #0052cc; border: 1px solid #0052cc; padding: 8px 15px; font-size: 13px; font-weight: 600; border-radius: 6px; width: 100%; cursor: pointer; margin-top: 5px;">💬 Chat to Negotiate Price</button>
+</div>
 </div>
 </div>
 
-<script>
-// Forzar la carga al iniciar
-window.onload = function() {
-renderDynamicGrid();
-};
+<!-- VENTANA DEL CHAT PRIVADO (ESTILO OFFERUP) -->
+<div id="chatWindow" style="background-color: #1e1e24; border-radius: 12px; padding: 15px; width: 100%; max-width: 400px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 1px solid #2a2a35; box-sizing: border-box; margin-bottom: 20px;">
+<div style="border-bottom: 1px solid #2a2a35; padding-bottom: 10px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+<strong style="color: white; font-size: 15px;">💬 Private Chat (Negotiation)</strong>
+<span style="color: #b3b3b3; font-size: 12px;">🔒 Phone Hidden</span>
+</div>
 
-function navigateTo(pageId) {
-var views = document.querySelectorAll('.view-section');
-views.forEach(function(v) { v.style.display = "none"; });
-document.getElementById(pageId).style.display = "block";
-window.scrollTo(0,0);
-}
+<!-- Área de mensajes -->
+<div style="height: 150px; background-color: #121214; border-radius: 8px; padding: 10px; overflow-y: auto; margin-bottom: 10px; font-size: 14px; display: flex; flex-direction: column; gap: 8px;">
+<div style="background-color: #2a2a35; color: white; padding: 8px 12px; border-radius: 8px; align-self: flex-start; max-width: 80%;">
+Hello, I need an estimate to add 3 outlets in my living room.
+</div>
+<div style="background-color: #0052cc; color: white; padding: 8px 12px; border-radius: 8px; align-self: flex-end; max-width: 80%;">
+Sure! Tell me, are the walls drywall or concrete?
+</div>
+</div>
 
-function returnToHome() {
-renderDynamicGrid();
-navigateTo('home-page');
-}
+<!-- Input de texto para escribir -->
+<div style="display: flex; gap: 8px; margin-bottom: 12px;">
+<input type="text" placeholder="Type message or offer price..." style="flex: 1; padding: 10px; border-radius: 6px; border: 1px solid #2a2a35; background-color: #1a1a1e; color: white; font-size: 14px;">
+<button style="background-color: #0052cc; color: white; border: none; padding: 0 15px; border-radius: 6px; font-weight: 600; cursor: pointer;">Send</button>
+</div>
 
-function saveContractor() {
-var name = document.getElementById('reg-name').value.trim();
-var zip = document.getElementById('reg-zip').value.trim();
-var phone = document.getElementById('reg-phone').value.trim();
-var trade = document.getElementById('reg-trade').value.trim().toLowerCase();
+<!-- BOTÓN DE CIERRE DE TRATO BLINDADO -->
+<button style="background-color: #00ede6; color: #121214; border: none; padding: 12px; font-size: 15px; font-weight: 700; border-radius: 8px; width: 100%; cursor: pointer; box-shadow: 0 4px 10px rgba(0,237,230,0.2);">🤝 Deal Closed (Reveal Contact Info)</button>
+</div>
 
-trade = trade.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-
-if(!name || !zip || !phone || !trade) {
-alert('Por favor llena todos los campos obligatorios');
-return;
-}
-
-var list = JSON.parse(localStorage.getItem('prosList')) || [];
-list.push({name: name, zip: zip, phone: phone, trade: trade});
-localStorage.setItem('prosList', JSON.stringify(list));
-
-alert('¡Registro guardado con éxito! Se creó tu categoría con logo automático.');
-returnToHome();
-}
-
-function getCustomIcon(trade) {
-var t = trade.toLowerCase();
-if(t.includes('electrici')) return '⚡';
-if(t.includes('plomer') || t.includes('plumb')) return '🪠';
-if(t.includes('pintor') || t.includes('paint')) return '🎨';
-if(t.includes('mecanic') || t.includes('mechanic')) return '🚗';
-if(t.includes('jardin') || t.includes('garden')) return '🌳';
-if(t.includes('drywall') || t.includes('tablarro')) return '📐';
-if(t.includes('carpent') || t.includes('carpin')) return '🪚';
-if(t.includes('barber') || t.includes('peluqu') || t.includes('hair') || t.includes('estili')) return '✂️';
-if(t.includes('roof') || t.includes('techa')) return '🏠';
-if(t.includes('clean') || t.includes('limpie')) return '🧹';
-if(t.includes('pet') || t.includes('perr') || t.includes('groom')) return '🐶';
-if(t.includes('hvac') || t.includes('aire') || t.includes('calef')) return '❄️';
-if(t.includes('albañil') || t.includes('cement') || t.includes('mason')) return '🧱';
-if(t.includes('auto detail') || t.includes('lavad')) return '🧽';
-if(t.includes('tint') || t.includes('polariz')) return '🕶️';
-return '🛠️';
-}
-
-function renderDynamicGrid() {
-var list = JSON.parse(localStorage.getItem('prosList')) || [];
-var grid = document.getElementById('dynamic-grid-target');
-grid.innerHTML = '';
-
-if(list.length === 0) {
-grid.innerHTML = '<div style="grid-column: span 2; padding: 25px; color: #7f8c8d; font-style: italic; font-size:14px;">👷‍♂️ No hay categorías activas aún. ¡Presiona "Registra tu Oficio" arriba para estrenar la plataforma!</div>';
-return;
-}
-
-var tradesRegistered = [];
-list.forEach(function(item) {
+</body>
+</html>
