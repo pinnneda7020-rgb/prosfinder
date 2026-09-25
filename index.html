@@ -1,156 +1,240 @@
-<!DOCTYPE html>
+html<!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prosfinder</title>
-<style>
-body {
-background-color: #121214;
-color: #ffffff;
-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-margin: 0;
-padding: 15px;
-display: flex;
-flex-direction: column;
-align-items: center;
-}
-.header-box {
-background-color: #1e1e24;
-border-radius: 12px;
-padding: 20px;
-width: 100%;
-max-width: 400px;
-text-align: center;
-box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-margin-bottom: 20px;
-border: 1px solid #2a2a35;
-}
-h1 {
-color: #ffffff;
-font-size: 24px;
-margin: 0 0 15px 0;
-font-weight: 700;
-letter-spacing: 0.5px;
-}
-.btn-register {
-background-color: #0052cc;
-color: white;
-border: none;
-padding: 14px 24px;
-font-size: 16px;
-font-weight: 600;
-border-radius: 8px;
-width: 80%;
-cursor: pointer;
-box-shadow: 0 2px 8px rgba(0,82,204,0.4);
-}
-.info-card {
-background-color: #1a1a1e;
-border-left: 4px solid #0052cc;
-border-radius: 4px 12px 12px 4px;
-padding: 20px;
-width: 100%;
-max-width: 360px;
-margin-bottom: 25px;
-box-sizing: border-box;
-}
-.phone-display {
-font-size: 22px;
-font-weight: 700;
-color: #00ede6;
-text-align: center;
-margin: 15px 0;
-letter-spacing: 1px;
-user-select: all;
-pointer-events: none;
-}
-.lang-section {
-margin-bottom: 15px;
-}
-.lang-section:last-child {
-margin-bottom: 0;
-}
-p {
-font-size: 14px;
-line-height: 1.5;
-color: #b3b3b3;
-margin: 5px 0;
-}
-strong {
-color: #ffffff;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prosfinder</title>
+    <style>
+        body {
+            background-color: #121214;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header-box {
+            background-color: #1e1e24;
+            border-radius: 12px;
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            margin-bottom: 20px;
+            border: 1px solid #2a2a35;
+            box-sizing: border-box;
+        }
+        h1 {
+            color: #ffffff;
+            font-size: 24px;
+            margin: 0 0 15px 0;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .btn-register {
+            background-color: #0052cc;
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            width: 100%;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,82,204,0.4);
+        }
+        .info-card {
+            background-color: #1a1a1e;
+            border-left: 4px solid #0052cc;
+            border-radius: 4px 12px 12px 4px;
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 25px;
+            box-sizing: border-box;
+        }
+        .phone-display {
+            font-size: 22px;
+            font-weight: 700;
+            color: #00ede6;
+            text-align: center;
+            margin: 15px 0;
+            letter-spacing: 1px;
+            user-select: all;
+            pointer-events: none;
+        }
+        p {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #b3b3b3;
+            margin: 5px 0;
+        }
+        strong {
+            color: #ffffff;
+        }
+        .pro-card {
+            background-color: #1a1a1e;
+            border: 1px solid #2a2a35;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        .btn-chat {
+            background-color: #222227;
+            color: #0052cc;
+            border: 1px solid #0052cc;
+            padding: 10px 15px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 6px;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+        #chatArea {
+            height: 150px;
+            background-color: #121214;
+            border-radius: 8px;
+            padding: 10px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .msg-in {
+            background-color: #2a2a35;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            align-self: flex-start;
+            max-width: 80%;
+        }
+        .msg-out {
+            background-color: #0052cc;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            align-self: flex-end;
+            max-width: 80%;
+        }
+    </style>
 </head>
 <body>
 
-<div class="header-box">
-<h1>🛠️ Prosfinder</h1>
-<button class="btn-register">Registra tu Oficio</button>
-</div>
+    <div class="header-box">
+        <h1>🛠️ Prosfinder</h1>
+        <button class="btn-register" id="regBtn">Registra tu Oficio</button>
+    </div>
 
-<div class="info-card">
-<div class="lang-section">
-<p>🇺🇸 <strong>Support this project to keep it free!</strong></p>
-<p>If you contribute $1 dollar for every deal you close, you help us keep this platform 100% free with no hidden fees or monthly payments.</p>
-</div>
+    <div class="info-card">
+        <div>
+            <p>🇺🇸 <strong>Support this project to keep it free!</strong></p>
+            <p>If you contribute $1 dollar for every deal you close, you help us keep this platform 100% free with no hidden fees or monthly payments.</p>
+        </div>
+        <div class="phone-display">323-637-6165</div>
+        <div>
+            <p>🇲🇽 <strong>¡Apoya el proyecto para que siga siendo gratis!</strong></p>
+            <p>Si aportas $1 dólar por cada trato que cierres, ayudas a que la plataforma siga operando al 100% sin cuotas ni mensualidades forzadas.</p>
+        </div>
+    </div>
 
-<div class="phone-display">323-637-6165</div>
+    <div class="header-box">
+        <h2 style="font-size: 18px; margin: 0 0 12px 0; color: #ffffff; text-align: left;">🔍 Find Local Pros (Zip: 90255)</h2>
+        <input type="text" id="searchBar" placeholder="Search trades (e.g. Mechanics, Electricians)...">
+        <div id="prosList" style="margin-top: 15px;">
+            
+            <!-- Perfil 1 -->
+            <div class="pro-card" data-trade="electrician">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <strong>Miguel Pineda</strong>
+                    <span style="background-color: #0052cc; color: white; font-size: 12px; padding: 4px 8px; border-radius: 4px; font-weight: 600;">Electrician</span>
+                </div>
+                <p>Residential wiring, outlet additions, and panel troubleshooting in Huntington Park area.</p>
+                <button class="btn-chat" onclick="openChat('Miguel Pineda', 'Electrician', '323-555-0199')">💬 Chat to Negotiate Price</button>
+            </div>
 
-<div class="lang-section">
-<p>🇲🇽 <strong>¡Apoya el proyecto para que siga siendo gratis!</strong></p>
-<p>Si aportas $1 dólar por cada trato que cierres, ayudas a que la plataforma siga operando al 100% sin cuotas ni mensualidades forzadas.</p>
-</div>
-</div>
+            <!-- Perfil 2 de Ejemplo para probar el buscador -->
+            <div class="pro-card" data-trade="mechanic">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <strong>Carlos Mendoza</strong>
+                    <span style="background-color: #0052cc; color: white; font-size: 12px; padding: 4px 8px; border-radius: 4px; font-weight: 600;">Mobile Mechanic</span>
+                </div>
+                <p>Brake pads replacement, oil change, alternator repairs and engine diagnostics at home.</p>
+                <button class="btn-chat" onclick="openChat('Carlos Mendoza', 'Mobile Mechanic', '323-555-0144')">💬 Chat to Negotiate Price</button>
+            </div>
 
-</body>
-</html>
+        </div>
+    </div>
 
-<!-- SECCIÓN DEL BUSCADOR LOCAL Y CATÁLOGO -->
-<div class="header-box" style="max-width: 400px; width: 100%; box-sizing: border-box;">
-<h2 style="font-size: 18px; margin: 0 0 12px 0; color: #ffffff; text-align: left;">🔍 Find Local Pros (Zip: 90255)</h2>
-<input type="text" id="searchBar" placeholder="Search trades (e.g. Mechanics, Electricians)..." style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #2a2a35; background-color: #1a1a1e; color: white; box-sizing: border-box; font-size: 15px; margin-bottom: 15px;">
+    <div id="chatWindow" style="background-color: #1e1e24; border-radius: 12px; padding: 15px; width: 100%; max-width: 400px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 1px solid #2a2a35; box-sizing: border-box; margin-bottom: 20px; display: none;">
+        <div style="border-bottom: 1px solid #2a2a35; padding-bottom: 10px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+            <strong id="chatTitle">💬 Chat Privado</strong>
+            <span id="lockStatus" style="color: #00ede6; font-size: 12px;">🔒 Phone Hidden</span>
+        </div>
+        <div id="chatArea"></div>
+        <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+            <input type="text" id="msgInput" placeholder="Type message or offer price..." style="flex: 1; padding: 10px; border-radius: 6px; border: 1px solid #2a2a35; background-color: #1a1a1e; color: white; font-size: 14px;">
+            <button onclick="sendMsg()" style="background-color: #0052cc; color: white; border: none; padding: 0 15px; border-radius: 6px; font-weight: 600; cursor: pointer;">Send</button>
+        </div>
+        <button id="dealBtn" onclick="closeDeal()" style="background-color: #00ede6; color: #121214; border: none; padding: 12px; font-size: 15px; font-weight: 700; border-radius: 8px; width: 100%; cursor: pointer;">🤝 Deal Closed (Reveal Contact Info)</button>
+    </div>
 
-<!-- Contenedor dinámico de trabajadores -->
-<div id="prosList">
-<!-- Ejemplo de tarjeta de perfil elegante -->
-<div class="pro-card" style="background-color: #1a1a1e; border: 1px solid #2a2a35; border-radius: 10px; padding: 15px; margin-bottom: 10px; text-align: left;">
-<div style="display: flex; justify-content: space-between; align-items: center;">
-<strong style="font-size: 16px; color: #ffffff;">Miguel Pineda</strong>
-<span style="background-color: #0052cc; color: white; font-size: 12px; padding: 4px 8px; border-radius: 4px; font-weight: 600;">Electrician</span>
-</div>
-<p style="margin: 8px 0; font-size: 14px; color: #b3b3b3;">Residential wiring, outlet additions, and panel troubleshooting in Huntington Park area.</p>
-<button class="btn-chat" style="background-color: #222227; color: #0052cc; border: 1px solid #0052cc; padding: 8px 15px; font-size: 13px; font-weight: 600; border-radius: 6px; width: 100%; cursor: pointer; margin-top: 5px;">💬 Chat to Negotiate Price</button>
-</div>
-</div>
-</div>
+    <script>
+        let currentPhone = '';
+        let activePro = '';
 
-<!-- VENTANA DEL CHAT PRIVADO (ESTILO OFFERUP) -->
-<div id="chatWindow" style="background-color: #1e1e24; border-radius: 12px; padding: 15px; width: 100%; max-width: 400px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 1px solid #2a2a35; box-sizing: border-box; margin-bottom: 20px;">
-<div style="border-bottom: 1px solid #2a2a35; padding-bottom: 10px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
-<strong style="color: white; font-size: 15px;">💬 Private Chat (Negotiation)</strong>
-<span style="color: #b3b3b3; font-size: 12px;">🔒 Phone Hidden</span>
-</div>
+        // 1. MOTOR DEL BUSCADOR DE OFICIOS
+        document.getElementById('searchBar').addEventListener('input', function(e) {
+            let filter = e.target.value.toLowerCase();
+            let cards = document.querySelectorAll('.pro-card');
+            cards.forEach(card => {
+                let trade = card.getAttribute('data-trade').toLowerCase();
+                let name = card.querySelector('strong').innerText.toLowerCase();
+                if(trade.includes(filter) || name.includes(filter)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
 
-<!-- Área de mensajes -->
-<div style="height: 150px; background-color: #121214; border-radius: 8px; padding: 10px; overflow-y: auto; margin-bottom: 10px; font-size: 14px; display: flex; flex-direction: column; gap: 8px;">
-<div style="background-color: #2a2a35; color: white; padding: 8px 12px; border-radius: 8px; align-self: flex-start; max-width: 80%;">
-Hello, I need an estimate to add 3 outlets in my living room.
-</div>
-<div style="background-color: #0052cc; color: white; padding: 8px 12px; border-radius: 8px; align-self: flex-end; max-width: 80%;">
-Sure! Tell me, are the walls drywall or concrete?
-</div>
-</div>
+        // 2. FUNCIÓN PARA ABRIR CHAT DINÁMICO
+        function openChat(name, trade, phone) {
+            activePro = name;
+            currentPhone = phone;
+            document.getElementById('chatWindow').style.display = 'block';
+            document.getElementById('chatTitle').innerText = '💬 Chat con ' + name;
+            document.getElementById('lockStatus').innerText = '🔒 Phone Hidden';
+            document.getElementById('dealBtn').style.display = 'block';
+            
+            let area = document.getElementById('chatArea');
+            area.innerHTML = `<div class="msg-in">Hello, I need an estimate for a ${trade} service near Zip 90255.</div>`;
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        }
 
-<!-- Input de texto para escribir -->
-<div style="display: flex; gap: 8px; margin-bottom: 12px;">
-<input type="text" placeholder="Type message or offer price..." style="flex: 1; padding: 10px; border-radius: 6px; border: 1px solid #2a2a35; background-color: #1a1a1e; color: white; font-size: 14px;">
-<button style="background-color: #0052cc; color: white; border: none; padding: 0 15px; border-radius: 6px; font-weight: 600; cursor: pointer;">Send</button>
-</div>
+        // 3. MOTOR PARA ENVIAR MENSAJES REALES
+        function sendMsg() {
+            let input = document.getElementById('msgInput');
+            if(input.value.trim() !== '') {
+                let area = document.getElementById('chatArea');
+                let newMsg = document.createElement('div');
+                newMsg.className = 'msg-out';
+                newMsg.innerText = input.value;
+                area.appendChild(newMsg);
+                input.value = '';
+                area.scrollTop = area.scrollHeight;
+            }
+        }
 
-<!-- BOTÓN DE CIERRE DE TRATO BLINDADO -->
-<button style="background-color: #00ede6; color: #121214; border: none; padding: 12px; font-size: 15px; font-weight: 700; border-radius: 8px; width: 100%; cursor: pointer; box-shadow: 0 4px 10px rgba(0,237,230,0.2);">🤝 Deal Closed (Reveal Contact Info)</button>
-</div>
-
-</body>
-</html>
+        // 4. MOTOR PARA CERRAR EL TRATO Y REVELAR CONTACTO
+        function closeDeal() {
+            let area = document.getElementById('chatArea');
+            let infoMsg = document.createElement('div');
+            infoMsg.style.backgroundColor = '#1a1a1e';
+            infoMsg.style.color = '#00ede6'
