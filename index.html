@@ -7,23 +7,22 @@
 <style>
 body { font-family: Arial, sans-serif; text-align: center; padding: 20px; background-color: #f4f4f4; color: #333; margin-bottom: 80px; }
 .logo { font-size: 32px; font-weight: bold; color: #ffffff; background-color: #1a2a3a; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
-
-/* BOTÓN DE REGISTRO COMPACTO Y LIMPIO */
+h2 { font-size: 18px; margin: 25px 0 15px 0; color: #1a2a3a; font-weight: bold; }
 .btn-small { display: block; width: 65%; max-width: 220px; margin: 10px auto; padding: 10px; font-size: 14px; font-weight: bold; color: white; border: none; border-radius: 20px; cursor: pointer; text-decoration: none; background-color: #d35400; }
 
 /* CUADRO SÁNDWICH DE ZELLE UNIVERSAL */
-.zelle-box { background-color: #ffffff; border: 1px solid #cbd5e1; padding: 15px; border-radius: 8px; margin: 20px auto; max-width: 340px; font-size: 14px; text-align: center; box-shadow: 0px 4px 6px rgba(0,0,0,0.02); }
+.zelle-box { background-color: #ffffff; border: 1px solid #cbd5e1; padding: 15px; border-radius: 8px; margin: 35px auto; max-width: 340px; font-size: 14px; text-align: center; box-shadow: 0px 4px 6px rgba(0,0,0,0.02); }
 .zelle-title { font-weight: bold; font-size: 15px; color: #1a2a3a; display: block; margin-bottom: 6px; }
 .zelle-number { font-weight: bold; color: #27ae60; font-size: 20px; display: block; margin: 10px 0; background-color: #f8fafc; padding: 8px; border-radius: 6px; border: 1px solid #e2e8f0; }
 
-/* VISTAS Y REJILLA DE CATEGORÍAS */
-.page-view { display: none; }
-.page-view.active-view { display: block !important; }
-.grid-categories { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 340px; margin: 20px auto; }
-.category-card { background: white; padding: 15px 10px; border-radius: 8px; box-shadow: 0px 4px 6px rgba(0,0,0,0.05); cursor: pointer; border: 1px solid #e2e8f0; font-weight: bold; font-size: 14px; }
-.category-card .icon { font-size: 30px; display: block; margin-bottom: 6px; }
+/* REJILLA DE CATEGORÍAS EN PORTADA */
+.grid-categories { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 340px; margin: 0 auto; }
+.category-card { background: white; padding: 18px 10px; border-radius: 8px; box-shadow: 0px 4px 6px rgba(0,0,0,0.05); cursor: pointer; border: 1px solid #e2e8f0; font-weight: bold; font-size: 13px; text-transform: uppercase; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.category-card .icon { font-size: 28px; margin-bottom: 6px; }
 
 /* PLANILLAS Y TARJETAS */
+.view-section { display: none; }
+.view-section.active-view { display: block !important; }
 .form-container { background: white; padding: 20px; border-radius: 8px; margin: 15px auto; max-width: 320px; box-shadow: 0px 4px 6px rgba(0,0,0,0.1); text-align: left; }
 label { font-weight: bold; display: block; margin-top: 10px; }
 input { width: 100%; padding: 10px; margin-top: 5px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
@@ -31,33 +30,27 @@ input { width: 100%; padding: 10px; margin-top: 5px; box-sizing: border-box; bor
 .btn-back { background-color: #7f8c8d; color: white; padding: 10px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; margin-bottom: 15px; width: 100%; }
 
 .list-container { max-width: 340px; margin: 20px auto; text-align: left; background: white; padding: 15px; border-radius: 8px; box-shadow: 0px 4px 6px rgba(0,0,0,0.05); }
-.list-title { font-weight: bold; font-size: 18px; margin-bottom: 10px; color: #1a2a3a; border-bottom: 2px solid #f4f4f4; padding-bottom: 5px; text-transform: uppercase; text-align: center; }
+.list-title { font-weight: bold; font-size: 16px; margin-bottom: 10px; color: #1a2a3a; border-bottom: 2px solid #f4f4f4; padding-bottom: 5px; text-transform: uppercase; text-align: center; }
 .pro-card { background: #f9f9f9; padding: 12px; border-radius: 6px; border-left: 4px solid #d35400; margin: 10px 0; }
 .pro-card p { margin: 4px 0; font-size: 14px; }
 .pro-card .name { font-weight: bold; color: #1a2a3a; font-size: 16px; }
 .action-links { margin-top: 10px; display: flex; gap: 10px; }
 .action-btn { flex: 1; text-align: center; padding: 8px; font-size: 13px; font-weight: bold; color: white; border-radius: 4px; text-decoration: none; }
 .btn-chat { background-color: #0073e6; }
-.no-records { text-align: center; color: #7f8c8d; font-style: italic; font-size: 13px; padding: 15px; }
 </style>
 </head>
 <body>
 
-<!-- PANTALLA 1: PORTADA AUTOMÁTICA CON LOGOS DIRECTOS -->
-<div id="home-page" class="page-view active-view">
+<!-- PANTALLA 1: PORTADA PRINCIPAL -->
+<div id="home-page" class="view-section active-view">
 <div class="logo">🛠️⚡ Prosfinder</div>
 
 <!-- BOTÓN DE REGISTRO COMPACTO -->
 <button class="btn-small" onclick="navigateTo('register-page')">Registra tu Oficio</button>
 
-<!-- REJILLA DE CATEGORÍAS DIRECTA EN LA ENTRADA -->
-<div class="grid-categories">
-<div class="category-card" onclick="openCategoryList('electricista')"><span class="icon">⚡</span>Electricistas</div>
-<div class="category-card" onclick="openCategoryList('plomero')"><span class="icon">🪠</span>Plomeros</div>
-<div class="category-card" onclick="openCategoryList('pintor')"><span class="icon">🎨</span>Pintores</div>
-<div class="category-card" onclick="openCategoryList('mecanico')"><span class="icon">🚗</span>Mecánicos</div>
-<div class="category-card" onclick="openCategoryList('jardinero')"><span class="icon">🌳</span>Jardineros</div>
-</div>
+<h2>Oficios Disponibles / Active Trades</h2>
+<!-- REJILLA DINÁMICA AUTOMÁTICA -->
+<div class="grid-categories" id="dynamic-grid-target"></div>
 
 <!-- TU CAJA DE ZELLE ESTILO SÁNDWICH -->
 <div class="zelle-box">
@@ -69,24 +62,24 @@ input { width: 100%; padding: 10px; margin-top: 5px; box-sizing: border-box; bor
 </div>
 </div>
 
-<!-- PANTALLA 2: TABLERO PÚBLICO CON RESULTADOS DE LA CATEGORÍA SELECCIONADA -->
-<div id="results-page" class="page-view">
+<!-- PANTALLA 2: TABLERO DE RESULTADOS -->
+<div id="results-page" class="view-section">
 <div class="logo">🛠️⚡ Prosfinder</div>
 <div style="max-width: 340px; margin: 0 auto;">
-<button class="btn-back" onclick="navigateTo('home-page')">⬅ Volver al Menú / Back</button>
+<button class="btn-back" onclick="returnToHome()">⬅ Volver al Menú / Back</button>
 </div>
 
 <div class="list-container">
-<div class="list-title" id="current-category-title">Contratistas</div>
+<div class="list-title" id="current-category-title">Resultados</div>
 <div id="contractor-list-target"></div>
 </div>
 </div>
 
-<!-- PANTALLA 3: PLANILLA DE REGISTRO PARA EL TRABAJADOR -->
-<div id="register-page" class="page-view">
+<!-- PANTALLA 3: PLANILLA DE REGISTRO -->
+<div id="register-page" class="view-section">
 <div class="logo">🛠️⚡ Prosfinder</div>
 <div style="max-width: 340px; margin: 0 auto;">
-<button class="btn-back" onclick="navigateTo('home-page')">⬅ Cancelar / Back</button>
+<button class="btn-back" onclick="returnToHome()">⬅ Cancelar / Back</button>
 </div>
 
 <div class="form-container">
@@ -97,18 +90,27 @@ input { width: 100%; padding: 10px; margin-top: 5px; box-sizing: border-box; bor
 <input type="text" id="reg-name" placeholder="Tu Nombre">
 <label>Teléfono / Phone:</label>
 <input type="text" id="reg-phone" placeholder="323-000-0000">
-<label>Tu Oficio (Escribe: electricista, plomero, mecanico, pintor o jardinero):</label>
-<input type="text" id="reg-trade" placeholder="Ej: electricista">
+<label>Tu Oficio o Especialidad (Escribe qué sabes hacer):</label>
+<input type="text" id="reg-trade" placeholder="Ej: electricista, plomero, drywall, barber, roofers">
 <button class="btn-submit" onclick="saveContractor()">Registrarme / Register</button>
 </div>
 </div>
 
 <script>
+document.addEventListener("DOMContentLoaded", function() {
+renderDynamicGrid();
+});
+
 function navigateTo(pageId) {
-var views = document.querySelectorAll('.page-view');
+var views = document.querySelectorAll('.view-section');
 views.forEach(function(v) { v.classList.remove('active-view'); });
 document.getElementById(pageId).classList.add('active-view');
 window.scrollTo(0,0);
+}
+
+function returnToHome() {
+renderDynamicGrid();
+navigateTo('home-page');
 }
 
 function saveContractor() {
@@ -128,34 +130,37 @@ var list = JSON.parse(localStorage.getItem('prosList')) || [];
 list.push({name: name, zip: zip, phone: phone, trade: trade});
 localStorage.setItem('prosList', JSON.stringify(list));
 
-alert('¡Registro guardado con éxito y enviado a su categoría de forma permanente!');
-
-document.getElementById('reg-name').value = '';
-document.getElementById('reg-zip').value = '';
-document.getElementById('reg-phone').value = '';
-document.getElementById('reg-trade').value = '';
-
-openCategoryList(trade);
+alert('¡Registro guardado con éxito! Se creó tu categoría con logo automático.');
+returnToHome();
 }
 
-function openCategoryList(categoryName) {
-var cleanCat = categoryName.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+// EL RECONOCEDOR DE ICONOS INTELIGENTE CON TU LISTA REAL
+function getCustomIcon(trade) {
+var t = trade.toLowerCase();
+if(t.includes('electrici')) return '⚡';
+if(t.includes('plomer') || t.includes('plumb')) return '🪠';
+if(t.includes('pintor') || t.includes('paint')) return '🎨';
+if(t.includes('mecanic') || t.includes('mechanic')) return '🚗';
+if(t.includes('jardin') || t.includes('garden')) return '🌳';
+if(t.includes('drywall') || t.includes('tablarro')) return '📐';
+if(t.includes('carpent') || t.includes('carpin')) return '🪚';
+if(t.includes('barber') || t.includes('peluqu') || t.includes('hair') || t.includes('estili')) return '✂️';
+if(t.includes('roof') || t.includes('techa')) return '🏠';
+if(t.includes('clean') || t.includes('limpie')) return '🧹';
+if(t.includes('pet') || t.includes('perr') || t.includes('groom')) return '🐶';
+if(t.includes('hvac') || t.includes('aire') || t.includes('calef')) return '❄️';
+if(t.includes('albañil') || t.includes('cement') || t.includes('mason')) return '🧱';
+if(t.includes('auto detail') || t.includes('lavad')) return '🧽';
+if(t.includes('tint') || t.includes('polariz')) return '🕶️';
+if(t.includes('meser') || t.includes('waiter')) return '🤵';
+if(t.includes('bartend')) return '🍹';
+if(t.includes('payas') || t.includes('clown')) return '🤡';
+return '🛠️'; // Respaldo general si escriben otra cosa
+}
 
-document.getElementById('current-category-title').innerText = categoryName.toUpperCase();
+function renderDynamicGrid() {
 var list = JSON.parse(localStorage.getItem('prosList')) || [];
-var target = document.getElementById('contractor-list-target');
-target.innerHTML = '';
+var grid = document.getElementById('dynamic-grid-target');
+grid.innerHTML = '';
 
-var matches = list.filter(function(pro) {
-var cleanProTrade = pro.trade.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-return cleanProTrade === cleanCat || cleanProTrade.includes(cleanCat);
-});
-
-if(matches.length === 0) {
-target.innerHTML = '<div class="no-records">⚠️ Lo sentimos, no hay trabajadores registrados en la categoría "' + categoryName + '" en este momento.</div>';
-} else {
-matches.forEach(function(pro) {
-var card = document.createElement('div');
-card.className = 'pro-card';
-card.innerHTML = '<p class="name">👷‍♂️ ' + pro.name + '</p>' +
-'<p><b>ZIP:</b> ' + pro.zip + '</p>' +
+if(list.length === 0) {
